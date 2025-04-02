@@ -112,6 +112,13 @@ public class Library extends Building{
       System.out.println(title + " is available: " + available);
     }
   }
+
+  /**
+   * Method to show options
+   */
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + addTitle(title) \n + removeTitle(title) \n + checkOut(title) \n + returnBook(title) \n + containsTitle(title) \n + isAvailable(title) \n + printCollection()");
+}
   
   /**
    * Main
@@ -131,6 +138,7 @@ public class Library extends Building{
     System.out.println(koebel.containsTitle("Six of Crows by Leigh Bardugo"));
     System.out.println(koebel.containsTitle("Crooked Kingdom by Leigh Bardugo"));
     koebel.printCollection();
+    koebel.showOptions();
   }
   
   }

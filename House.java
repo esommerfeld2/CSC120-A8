@@ -76,6 +76,13 @@ public class House extends Building {
   }
 
   /**
+   * Method to show options
+   */
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + moveIn(s) \n + moveOut(s) \n");
+}
+
+  /**
    * To String
    * @return the name and if it has a dining room
    */
@@ -101,5 +108,6 @@ public class House extends Building {
     gillett.goUp();
     gillett.goDown();
     gillett.exit();
+    gillett.showOptions();
   }
 }

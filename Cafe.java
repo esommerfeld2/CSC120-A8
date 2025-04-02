@@ -81,6 +81,13 @@ public class Cafe extends Building {
     }
 
     /**
+   * Method to show options
+   */
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + sellCoffee() \n");
+    }
+
+    /**
      * To String
      * @return the coffee, sugar, cream, and cups available
      */
@@ -114,6 +121,7 @@ public class Cafe extends Building {
         //last test use all 2, 7, 6, 6
         aAndE.sellCoffee(12,2,3);
         System.out.println(aAndE);
+        aAndE.showOptions();
     }
     
 }
