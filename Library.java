@@ -4,6 +4,7 @@ public class Library extends Building{
 
   // Atributes
   private Hashtable<String, Boolean> collection;
+  private boolean hasElevator;
 
     /**
      * Constructor
@@ -11,8 +12,9 @@ public class Library extends Building{
      * @param address
      * @param nFloors
      */
-  public Library(String name, String address, int nFloors) {
+  public Library(String name, String address, int nFloors, boolean hasElevator) {
     super(name, address, nFloors);
+    this.hasElevator = hasElevator;
     this.collection = new Hashtable<String, Boolean>();
     System.out.println("You have built a library: 📖");
   }
@@ -119,13 +121,27 @@ public class Library extends Building{
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + addTitle(title) \n + removeTitle(title) \n + checkOut(title) \n + returnBook(title) \n + containsTitle(title) \n + isAvailable(title) \n + printCollection()");
 }
+
+/**
+ * Method to move up and down floors
+ * @param floorNum the floor you want to go to
+ */
+public void goToFloor(int floorNum) {
+  if (this.activeFloor + 1 < floorNum || this.activeFloor - 1 > floorNum) {
+    if(!hasElevator){
+      throw new RuntimeException("No elevator. Can only move up one or down one floor at a time");
+    }
+  }
+  super.goToFloor(floorNum);
+}
   
   /**
    * Main
    * @param args
    */
   public static void main(String[] args) {
-    Library koebel = new Library("Koebel", "5955 S Holly St", 2);
+    Library koebel = new Library("Koebel", "5955 S Holly St", 3, true);
+    Library tinyShackInWoods = new Library("Tiny Shack in the Woods", "Really?", 6, false);
     koebel.addTitle("Six of Crows by Leigh Bardugo");
     koebel.addTitle("Crooked Kingdom by Leigh Bardugo");
     koebel.addTitle("I Kissed Shara Wheeler by Casey McQuinston");
@@ -139,6 +155,13 @@ public class Library extends Building{
     System.out.println(koebel.containsTitle("Crooked Kingdom by Leigh Bardugo"));
     koebel.printCollection();
     koebel.showOptions();
+    koebel.enter();
+    koebel.goToFloor(3);
+    tinyShackInWoods.enter();
+    tinyShackInWoods.goUp();
+    tinyShackInWoods.goUp();
+    tinyShackInWoods.goUp();
+    tinyShackInWoods.goToFloor(2);
   }
   
   }

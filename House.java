@@ -5,6 +5,7 @@ public class House extends Building {
   //Atributes
   private ArrayList<Student> residents; // The <Student> tells Java what kind of data we plan to store IN the ArrayList
   private boolean hasDiningRoom;
+  private boolean hasElevator;
 
   /**
    * Contructor
@@ -13,10 +14,11 @@ public class House extends Building {
    * @param nFloors
    * @param hasDiningRoom
    */
-  public House(String name, String address, int nFloors, boolean hasDiningRoom) {
+  public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElevator) {
     super(name, address, nFloors);
     this.residents = new ArrayList<Student>();
     this.hasDiningRoom = hasDiningRoom;
+    this.hasElevator = hasElevator;
     System.out.println("You have built a house: 🏠");
   }
 
@@ -80,7 +82,20 @@ public class House extends Building {
    */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + moveIn(s) \n + moveOut(s) \n");
-}
+  }
+
+  /**
+  * Method to move up and down floors
+  * @param floorNum the floor you want to go to
+  */
+  public void goToFloor(int floorNum) {
+    if (this.activeFloor + 1 < floorNum || this.activeFloor - 1 > floorNum) {
+      if(!hasElevator){
+        throw new RuntimeException("No elevator. Can only move up one or down one floor at a time");
+      }
+    }
+    super.goToFloor(floorNum);
+  }
 
   /**
    * To String
@@ -95,7 +110,8 @@ public class House extends Building {
    * @param args
    */
   public static void main(String[] args) {
-    House gillett = new House("Gillett", "54 Elm", 5, true);
+    House gillett = new House("Gillett", "54 Elm", 5, true, true);
+    House washburn = new House("Washburn", "Green St", 3, false, false);
     System.out.println(gillett);
     System.out.println(gillett.hasDiningRoom());
     System.out.println(gillett.nResidents());
@@ -105,9 +121,9 @@ public class House extends Building {
     gillett.moveOut(catherine);
     System.out.println(gillett.isResident(catherine));
     gillett.enter();
-    gillett.goUp();
-    gillett.goDown();
-    gillett.exit();
+    gillett.goToFloor(4);
     gillett.showOptions();
+    washburn.enter();
+    washburn.goToFloor(3);
   }
 }
