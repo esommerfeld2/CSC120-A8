@@ -152,6 +152,5 @@ public class House extends Building {
     gillett.goToFloor(4);
     gillett.showOptions();
     washburn.enter();
-    washburn.goToFloor(3);
   }
 }

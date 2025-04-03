@@ -128,6 +128,17 @@ public class Cafe extends Building {
     }
 
     /**
+  * Method to move up and down floors
+  * @param floorNum the floor you want to go to
+  */
+  public void goToFloor(int floorNum) {
+    if (this.activeFloor < floorNum || this.activeFloor > floorNum) {
+      throw new RuntimeException("This cafe has one floor open to the public. Can only stay on the first floor");
+    }
+    super.goToFloor(floorNum);
+  }
+
+    /**
      * To String
      * @return the coffee, sugar, cream, and cups available
      */

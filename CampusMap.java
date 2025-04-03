@@ -55,11 +55,10 @@ public class CampusMap {
         compassCafe.sellCoffee(12);
         myMap.addBuilding(new Cafe("CC", "100 Elm Street Northampton, MA 01063", 1, 100, 12, 6, 300));
         
-        //House (6)
+        //House (5)
         myMap.addBuilding(new House());
         myMap.addBuilding(new House("Tyler"));
         myMap.addBuilding(new House("Gillett", "54 Elm Street Northampton, Ma 01063", 5, true, true));
-        myMap.addBuilding(new House("Washburn"));
         myMap.addBuilding(new House("Northrop"));
         myMap.addBuilding(new House("Lamont"));
 
@@ -71,6 +70,9 @@ public class CampusMap {
         forbes.addTitle("You Should Be So Lucky by Cat Sebastain");
         forbes.printCollection(true);
         forbes.printCollection(false);
+
+        //Building (1)
+        myMap.addBuilding(new Building("Sabin-Reed", "4 Tyler Ct Northampton, Ma 01063", 4));
 
         //Check map
         System.out.println(myMap);

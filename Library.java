@@ -202,7 +202,6 @@ public void goToFloor(int floorNum) {
     tinyShackInWoods.goUp();
     tinyShackInWoods.goUp();
     tinyShackInWoods.goUp();
-    tinyShackInWoods.goToFloor(2);
   }
   
   }

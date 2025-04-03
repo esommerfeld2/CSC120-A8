@@ -14,3 +14,4 @@ Library
 2. I made a default constructor that only needs the libraries name so if you only knew the name of the library you could create a unquie library. 
 
 - What worked, what didn't, what advice would you give someone taking this course in the future?
+I tried to make it so that you could add multiple titles by the same name to the library but ran into issues because of the way a Hashtable is set up which taught me a lot. So I would say experiment but don't be afraid to give up on a method that doesn't work beacause you didn't fully understand how an element was set up. Also have fun with the methods, don't just overload the constructors its a fun challenge! Also I think this assignment went well. 
