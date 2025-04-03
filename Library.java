@@ -26,7 +26,18 @@ public class Library extends Building{
   public void addTitle(String title){
     // because libraries often have multiple copies of books it doesn't throw an expection if the book is already a part of the library
     collection.put(title, true);
-  } 
+  }
+
+  /**
+   * Method
+   * @param title being added
+   * @param copies being added
+   */
+  public void addTitle(String title, int copies){
+    for(int i = 0; i < copies; i++){
+      collection.put(title, true);
+    }
+  }
   
   /**
    * Method

@@ -22,6 +22,20 @@ public class House extends Building {
     System.out.println("You have built a house: 🏠");
   }
 
+  /**
+   * Contructor
+   * @param name
+   */
+  public House(String name) {
+    this.name = name;
+    this.address = "No address found";
+    this.nFloors = 1;
+    this.residents = new ArrayList<Student>();
+    this.hasDiningRoom = false;
+    this.hasElevator = false;
+    System.out.println("You have built a house: 🏠");
+  }
+
 /**
  * Accessor
  * @return if the house has dining room

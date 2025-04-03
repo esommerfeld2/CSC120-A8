@@ -26,6 +26,21 @@ public class Cafe extends Building {
     }
 
     /**
+     * Constructor
+     * @param name
+     * @param address
+     * @param nFloors
+     */
+    public Cafe(String name, String address, int nFloors) {
+        super(name, address, nFloors);
+        this.nCoffeeOunces= 100;
+        this.nSugarPackets= 24;
+        this.nCreams= 24;
+        this.nCups= 24;
+        System.out.println("You have built a cafe: ☕");
+    }
+
+    /**
      * Method
      * @param size of coffee
      * @param nSugarPackets in coffee
@@ -56,6 +71,31 @@ public class Cafe extends Building {
         } else {
             this.nCreams -= nCreams;
         }
+
+        //Cups
+        if(this.nCups < 1) {
+            restock(0,0,0,10);
+            this.nCups -= 1;
+        } else {
+            this.nCups -= 1;
+        }
+    }
+
+    /**
+     * Method
+     * @param size of coffee
+     * @param nSugarPackets in coffee
+     * @param nCreams in coffee
+     */
+    public void sellCoffee(int size){
+        
+        //Coffee
+        if(this.nCoffeeOunces< size){
+            restock(12, 0,0,0);
+            this.nCoffeeOunces -= size;
+        } else {
+            this.nCoffeeOunces -= size; 
+        } 
 
         //Cups
         if(this.nCups < 1) {
