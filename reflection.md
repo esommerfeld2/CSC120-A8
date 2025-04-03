@@ -10,7 +10,7 @@ House
 2. I chose to overload the constructor so that the only parameter was name so if you only knew the name of the house you create the house. But with the name parameter you would at least have one unquie thing about the building.
 
 Library
-1. When new books by a popular author come out libraries often buy multiple copies. I overloaded the addTitle method to include a parameter copies which allows you to add multiple copies of the same book at once. 
+1. I made it so you could select if you wanted to print out the collection in a fancy format by putting fancy as a boolean parameter. 
 2. I made a default constructor that only needs the libraries name so if you only knew the name of the library you could create a unquie library. 
 
 - What worked, what didn't, what advice would you give someone taking this course in the future?

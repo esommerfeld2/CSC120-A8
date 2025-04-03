@@ -19,6 +19,21 @@ public class Library extends Building{
     System.out.println("You have built a library: 📖");
   }
 
+    /**
+     * Constructor
+     * @param name
+     * @param address
+     * @param nFloors
+     */
+    public Library(String name) {
+      this.name = name;
+      this.address = "Unknown";
+      this.nFloors = 1;
+      this.hasElevator = false;
+      this.collection = new Hashtable<String, Boolean>();
+      System.out.println("You have built a library: 📖");
+    }
+
   /**
    * Method
    * @param title being added
@@ -26,17 +41,6 @@ public class Library extends Building{
   public void addTitle(String title){
     // because libraries often have multiple copies of books it doesn't throw an expection if the book is already a part of the library
     collection.put(title, true);
-  }
-
-  /**
-   * Method
-   * @param title being added
-   * @param copies being added
-   */
-  public void addTitle(String title, int copies){
-    for(int i = 0; i < copies; i++){
-      collection.put(title, true);
-    }
   }
   
   /**
@@ -123,6 +127,32 @@ public class Library extends Building{
     for (String title : collection.keySet()){
       boolean available = collection.get(title);
       System.out.println(title + " is available: " + available);
+    }
+  }
+
+  /**
+   * Method that prints collection
+   * @param fancy if you want to print out the collection in a fancy format
+   */
+  public void printCollection(boolean fancy){
+    if(fancy){
+      System.out.println("_________________________________________");
+      System.out.println("The following books are in the library: ");
+      for (String title : collection.keySet()){
+        boolean available = collection.get(title);
+        if (available){
+          System.out.println(title + " is in this library and it is available to check out.");
+        } else{
+          System.out.println(title + " is in this library but is not available to check out.");
+        }
+      }
+      System.out.println("_________________________________________");
+    } else {
+      System.out.println("The following books are in the library: ");
+      for (String title : collection.keySet()){
+        boolean available = collection.get(title);
+        System.out.println(title + " is available: " + available);
+      }
     }
   }
 
